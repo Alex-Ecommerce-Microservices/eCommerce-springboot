@@ -21,4 +21,6 @@ jobs:
         with:
           context: .  # Build ngay tại thư mục gốc của repo này
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/monolith-service:latest
+          tags: |
+            ${{ secrets.DOCKERHUB_USERNAME }}/monolith-service:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/monolith-service:v${{ github.run_number }}
