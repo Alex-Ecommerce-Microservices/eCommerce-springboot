@@ -1,0 +1,30 @@
+
+spring:
+  application:
+    name: monolith-service
+  profiles:
+    active: local # Mặc định chạy máy nhà
+
+  # Cấu hình Spring Data Rest (từ MyDataRestConfig của Hoa)
+  data:
+    rest:
+      base-path: /api
+      detection-strategy: ANNOTATED
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/full-stack-ecommerce
+    username: ${DB_USER}
+    password: ${DB_PASS}
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://integrator-5512784.okta.com/oauth2/default
+
+stripe:
+  secret:
+    key: ${STRIPE_SECRET_KEY}
+
+allowed:
+  origins: ${ALLOWED_ORIGINS}
